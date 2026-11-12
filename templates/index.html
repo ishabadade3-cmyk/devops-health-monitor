@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple DevOps project health dashboard.">
+    <title>DevOps Health Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="DevOps Health Monitor home">
+            <span class="brand-mark" aria-hidden="true">D</span>
+            <span>DevOps <strong>Monitor</strong></span>
+        </a>
+        <span class="environment"><span class="pulse"></span> LOCAL ENVIRONMENT</span>
+    </header>
+
+    <main class="dashboard">
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">APPLICATION OVERVIEW</p>
+                <h1>DevOps Health<br><span>Monitor</span></h1>
+                <p class="intro">
+                    A small, observable Flask service that demonstrates how code moves
+                    from a developer's machine into a tested, containerized application.
+                </p>
+                <a class="primary-button" href="/health">
+                    Check live health <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+            <div class="status-card">
+                <div class="status-heading">
+                    <span class="status-icon" aria-hidden="true">✓</span>
+                    <span class="eyebrow">CURRENT STATUS</span>
+                </div>
+                <p class="status-value"><span class="pulse"></span> Running</p>
+                <p class="status-note">The application is ready to respond.</p>
+                <div class="status-divider"></div>
+                <div class="status-detail"><span>Health endpoint</span><code>GET /health</code></div>
+                <div class="status-detail"><span>Service port</span><code>5000</code></div>
+            </div>
+        </section>
+
+        <section class="section-block" aria-labelledby="stack-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE TOOLKIT</p>
+                    <h2 id="stack-title">A practical delivery pipeline</h2>
+                </div>
+                <p>Small tools, connected into one repeatable workflow.</p>
+            </div>
+            <div class="stack-grid">
+                <article class="stack-card">
+                    <span class="stack-number">01</span>
+                    <h3>Python + Flask</h3>
+                    <p>Serve the dashboard and a lightweight JSON health check.</p>
+                </article>
+                <article class="stack-card">
+                    <span class="stack-number">02</span>
+                    <h3>Pytest</h3>
+                    <p>Catch regressions automatically before changes are merged.</p>
+                </article>
+                <article class="stack-card">
+                    <span class="stack-number">03</span>
+                    <h3>Docker</h3>
+                    <p>Package the app so it runs consistently in a container.</p>
+                </article>
+                <article class="stack-card">
+                    <span class="stack-number">04</span>
+                    <h3>GitHub Actions</h3>
+                    <p>Run tests and build the image whenever code changes.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="pipeline" aria-label="Continuous integration steps">
+            <div><span class="pipeline-dot"></span><strong>Code</strong><small>Git push</small></div>
+            <span class="pipeline-line" aria-hidden="true"></span>
+            <div><span class="pipeline-dot"></span><strong>Test</strong><small>Pytest</small></div>
+            <span class="pipeline-line" aria-hidden="true"></span>
+            <div><span class="pipeline-dot"></span><strong>Build</strong><small>Docker image</small></div>
+            <span class="pipeline-line" aria-hidden="true"></span>
+            <div><span class="pipeline-dot"></span><strong>Review</strong><small>Actions result</small></div>
+        </section>
+
+        <footer>
+            <span>Built to make DevOps concepts hands-on.</span>
+            <a href="/health">View health response <span aria-hidden="true">→</span></a>
+        </footer>
+    </main>
+</body>
+</html>
